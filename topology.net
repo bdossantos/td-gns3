@@ -1,0 +1,237 @@
+autostart = False
+version = 0.8.2-BETA2
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10000
+    [[3640]]
+        image = /Users/bdossantos/Documents/gns3/c3640-jk9o3s-mz.124-16a.image
+        idlepc = 0x605052bc
+        ghostios = True
+        chassis = 3640
+    [[ROUTER R4]]
+        model = 3640
+        console = 2003
+        aux = 2100
+        cnfg = configs/R4.cfg
+        slot0 = NM-4T
+        s0/0 = R3 s0/1
+        slot1 = NM-1FE-TX
+        f1/0 = SW9 1
+        x = -94.5236948984
+        y = 71.7211129907
+        z = 1.0
+    [[ROUTER R1]]
+        model = 3640
+        console = 2000
+        aux = 2101
+        cnfg = configs/R1.cfg
+        slot0 = NM-4T
+        s0/0 = R2 s0/0
+        s0/1 = R5 s1/1
+        slot1 = NM-1FE-TX
+        f1/0 = SW1 1
+        x = -142.688091896
+        y = -250.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3640
+        console = 2001
+        aux = 2102
+        cnfg = configs/R2.cfg
+        slot0 = NM-4T
+        s0/0 = R1 s0/0
+        s0/1 = R3 s0/0
+        slot1 = NM-1FE-TX
+        f1/0 = SW2 1
+        slot2 = NM-1FE-TX
+        f2/0 = SW3 1
+        x = 11.0
+        y = -138.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3640
+        console = 2002
+        aux = 2103
+        cnfg = configs/R3.cfg
+        slot0 = NM-4T
+        s0/0 = R2 s0/1
+        s0/1 = R4 s0/0
+        slot1 = NM-1FE-TX
+        f1/0 = SW4 1
+        slot2 = NM-1FE-TX
+        f2/0 = SW5 1
+        x = 87.0
+        y = 75.0
+        z = 1.0
+    [[ETHSW SW9]]
+        1 = access 1 R4 f1/0
+        2 = access 1 R5 f0/0
+        x = -217.5
+        y = 149.0
+        z = 1.0
+    [[ETHSW SW1]]
+        1 = access 1 R1 f1/0
+        x = -295.5
+        y = -254.0
+        z = 1.0
+    [[ETHSW SW3]]
+        1 = access 1 R2 f2/0
+        x = 205.5
+        y = -140.0
+        z = 1.0
+    [[ETHSW SW2]]
+        1 = access 1 R2 f1/0
+        x = 123.5
+        y = -239.0
+        z = 1.0
+    [[ETHSW SW5]]
+        1 = access 1 R3 f2/0
+        x = 180.5
+        y = 154.0
+        z = 1.0
+    [[ETHSW SW4]]
+        1 = access 1 R3 f1/0
+        x = 266.5
+        y = 78.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10100
+    [[3640]]
+        image = /Users/bdossantos/Documents/gns3/c3640-jk9o3s-mz.124-16a.image
+        idlepc = 0x605052bc
+        ghostios = True
+        chassis = 3640
+    [[ROUTER R5]]
+        model = 3640
+        console = 2004
+        aux = 2104
+        cnfg = configs/R5.cfg
+        slot0 = NM-1FE-TX
+        f0/0 = SW9 2
+        slot1 = NM-4T
+        s1/0 = FR1 1
+        s1/1 = R1 s0/1
+        x = -230.0
+        y = 39.0
+        z = 1.0
+    [[ROUTER R6]]
+        model = 3640
+        console = 2005
+        aux = 2105
+        cnfg = configs/R6.cfg
+        slot0 = NM-1FE-TX
+        f0/0 = SW7 1
+        slot1 = NM-1FE-TX
+        f1/0 = SW8 1
+        slot2 = NM-4T
+        s2/0 = FR1 2
+        x = -373.0
+        y = -67.0
+        z = 1.0
+    [[ROUTER R7]]
+        model = 3640
+        console = 2006
+        aux = 2106
+        cnfg = configs/R7.cfg
+        slot0 = NM-1FE-TX
+        f0/0 = SW6 1
+        slot1 = NM-4T
+        s1/0 = FR1 3
+        x = -406.0
+        y = 140.0
+        z = 1.0
+    [[ETHSW SW8]]
+        1 = access 1 R6 f1/0
+        x = -307.5
+        y = -147.0
+        z = 1.0
+    [[FRSW FR1]]
+        1:101 = 2:202
+        1:204 = 3:103
+        2:102 = 3:203
+        2:202 = 1:101
+        3:103 = 1:204
+        3:203 = 2:102
+        1 = R5 s1/0
+        2 = R6 s2/0
+        3 = R7 s1/0
+        x = -347.5
+        y = 41.5
+        z = 1.0
+    [[ETHSW SW7]]
+        1 = access 1 R6 f0/0
+        x = -500.5
+        y = -96.0
+        z = 1.0
+    [[ETHSW SW6]]
+        1 = access 1 R7 f0/0
+        x = -516.5
+        y = 119.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    m11 = 0.831237896143
+    m22 = 0.831237896143
+    [[NOTE 1]]
+        text = OSPF Area 0
+        x = -365.0
+        y = 207.0
+        z = 2.0
+    [[NOTE 2]]
+        text = AS3
+        x = -335.0
+        y = 185.0
+        z = 2.0
+    [[NOTE 3]]
+        text = OSPF area 1
+        x = 129.0
+        y = 193.0
+        z = 2.0
+    [[NOTE 4]]
+        text = AS1
+        x = 146.0
+        y = -48.0
+        z = 2.0
+    [[NOTE 5]]
+        text = AS2
+        x = -199.0
+        y = -201.0
+        z = 2.0
+    [[SHAPE 1]]
+        type = ellipse
+        x = -326.0
+        y = -303.0
+        width = 293.0
+        height = 128.0
+        fill_color = "#00557f"
+        border_style = 2
+        z = -2.0
+    [[SHAPE 2]]
+        type = ellipse
+        x = -27.0
+        y = -269.0
+        width = 374.0
+        height = 254.0
+        fill_color = "#ffff00"
+        border_style = 2
+        z = -2.0
+    [[SHAPE 3]]
+        type = ellipse
+        x = -38.0
+        y = -4.0
+        width = 427.0
+        height = 226.0
+        fill_color = "#55aa00"
+        border_style = 2
+        z = -2.0
+    [[SHAPE 4]]
+        type = ellipse
+        x = -552.0
+        y = -163.0
+        width = 469.0
+        height = 400.0
+        fill_color = "#55aaff"
+        border_style = 2
+        z = -2.0
